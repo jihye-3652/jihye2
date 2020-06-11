@@ -1,7 +1,7 @@
 package org.edu.test;
 
 import java.util.List;
-import java.util.Random;
+/*import java.util.Random;*/
 
 import javax.inject.Inject;
 
@@ -42,17 +42,17 @@ public class SampleMapperTest {
 	
 	@Test
 	public void testInsertMember() {
-		int vRandom = 0;
+		/*int vRandom = 0;
 		Random ran = new Random();
 		vRandom = ran.nextInt();
+		testSelectMember();*/
+		
+		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyyMMddHHmmss");
+		String today= formatter.format(new java.util.Date());
 		testSelectMember();
-		//java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat();
-				//string today= formatter
-		
-		
 		System.out.println("위쪽은 입력 전 리스트 입니다.");
 		MemberVO vo = new MemberVO();
-		vo.setUserid("user_" + vRandom);
+		vo.setUserid("user_" + today);
 		vo.setUserpw("1234");
 		vo.setUsername("각시탈");
 		vo.setEmail("user10@test.com");
@@ -92,6 +92,7 @@ public class SampleMapperTest {
 		int cnt = 1;
 		for(MemberVO vo: list) {
 			System.out.println(
+					"번호:" + cnt++ + "번" +
 					"아이디: " + vo.getUserid() + 
 					"암호: " + vo.getUserpw() + 
 					"이름: " + vo.getUsername() + 
