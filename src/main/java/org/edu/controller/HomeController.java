@@ -44,8 +44,8 @@ public class HomeController {
 		//변수를 받을때 '$'를 이용.
 		String maker="JihyeKim";
 		model.addAttribute("jspMaker", maker);
-		List<MemberVO> list = dao.selectMember();
-		model.addAttribute("memberLists", list);
+		/*List<MemberVO> list = dao.selectMember();
+		model.addAttribute("memberLists", list);*/
 		return "home";
 	}
 	
