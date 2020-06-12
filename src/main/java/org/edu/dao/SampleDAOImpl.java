@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.edu.vo.MemberVO;
 
-public class SampleMapperImpl implements IF_SampleMapper {
+public class SampleDAOImpl implements IF_SampleDAO {
 
 	
 	@Inject
