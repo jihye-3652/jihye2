@@ -80,7 +80,8 @@
 	    	ref="sqlSessionFactory"></constructor-arg>
 	</bean>
 	 
-	 <mybatis-spring:scan base-package="org.edu.dao"/>
+	 <context:component-scan base-package="org.edu.dao"/>
+	 <!-- <mybatis-spring:scan base-package="org.edu.dao"/> -->
 	 <context:component-scan base-package="org.edu.service" />	
 		
 	<context:component-scan base-package="org.edu.aop"></context:component-scan>
