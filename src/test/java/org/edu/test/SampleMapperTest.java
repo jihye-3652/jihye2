@@ -6,13 +6,17 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.edu.dao.IF_SampleDAO;
+import org.edu.service.IF_SampleService;
+import org.edu.service.SampleServiceImpl;
 import org.edu.vo.MemberVO;
 // import org.edu.dao.SampleSelectProvider;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
+@WebAppConfiguration //JUnit과 AOP동시사용 에러 처리리를 위함
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations ={"file:src/main/webapp/WEB-INF/spring/**/*.xml"})
 public class SampleMapperTest {
@@ -39,9 +43,11 @@ public class SampleMapperTest {
 	@Inject
 	private IF_SampleDAO mapper;//인터페이스를 실행가능하게 //구형 웹프로그램 => IF_SampleMapper mapper; = new IF_SampleMapper
 	//클래스를 실행변수로 사용시=> IF_SampleMapper mapper = new IF_SampleMatter
+	@Inject
+	private IF_SampleService sampleService;
 	
 	@Test
-	public void testInsertMember() {
+	public void testInsertMember() throws Exception {
 		/*int vRandom = 0;
 		Random ran = new Random();
 		vRandom = ran.nextInt();
@@ -56,7 +62,7 @@ public class SampleMapperTest {
 		vo.setUserpw("1234");
 		vo.setUsername("각시탈");
 		vo.setEmail("user10@test.com");
-		mapper.insertMember(vo);
+		sampleService.insertMember(vo);
 		System.out.println("아래쪽은 입력 후 리스트 입니다.");
 		testSelectMember();
 	}
@@ -107,7 +113,7 @@ public class SampleMapperTest {
 	@Test
 	public void testUserId(){
 		// System.out.println(mapper.getClass().getName()); //디버그용
-		String userid = mapper.getUserId("kimjihye");
+		String userid = mapper.getUserId("JihyeKim");
 		System.out.println("결과1[사용자이름에 해당하는 아이디확인] getUserId() : " + userid);
 	}	
 	
