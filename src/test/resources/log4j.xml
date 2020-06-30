@@ -36,6 +36,7 @@
 	<root>
 		<priority value="debug" />
 		<appender-ref ref="console" />
+		<appender-ref ref="fileLogger" />
 	</root>
 	
 </log4j:configuration>
